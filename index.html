@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XV Años Fernanda</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-hielo:#eef6ff;
+      --azul:#6d9de8;
+      --azul-profundo:#25456f;
+      --plata:#dbe6f3;
+      --blanco:#ffffff;
+      --dorado:#d9b66f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-profundo);
+      background:
+        radial-gradient(circle at top left, rgba(109,157,232,.35), transparent 35%),
+        linear-gradient(180deg, #f8fbff 0%, #edf5ff 45%, #ffffff 100%);
+      overflow-x:hidden;
+    }
+
+    .sparkles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle, rgba(109,157,232,.5) 1px, transparent 2px);
+      background-size: 70px 70px, 110px 110px;
+      animation: brillo 8s linear infinite;
+      opacity:.65;
+      z-index:1;
+    }
+
+    @keyframes brillo{
+      from{ transform:translateY(0); }
+      to{ transform:translateY(-80px); }
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(15,32,55,.10), rgba(15,32,55,.60)),
+        url('fernanda.jpg') center/cover no-repeat;
+      z-index:0;
+      transform:scale(1.02);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(92%, 520px);
+      padding:36px 24px;
+      text-align:center;
+      color:white;
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:34px;
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.12);
+      box-shadow:0 24px 70px rgba(0,0,0,.25);
+      animation: entrada 1.4s ease both;
+    }
+
+    @keyframes entrada{
+      from{opacity:0; transform:translateY(30px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .small-title{
+      letter-spacing:5px;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:500;
+    }
+
+    h1{
+      font-family:'Great Vibes', cursive;
+      font-size:74px;
+      font-weight:400;
+      margin:12px 0 0;
+      text-shadow:0 4px 16px rgba(0,0,0,.35);
+    }
+
+    .subtitle{
+      font-family:'Playfair Display', serif;
+      font-size:23px;
+      margin:8px 0 20px;
+    }
+
+    .phrase{
+      font-family:'Playfair Display', serif;
+      font-style:italic;
+      font-size:18px;
+      line-height:1.6;
+      margin:0 auto;
+      max-width:400px;
+    }
+
+    .scroll{
+      margin-top:28px;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+
+    section{
+      position:relative;
+      z-index:2;
+      padding:58px 20px;
+      text-align:center;
+    }
+
+    .section-title{
+      font-family:'Playfair Display', serif;
+      font-size:30px;
+      margin:0 0 12px;
+      color:var(--azul-profundo);
+    }
+
+    .script{
+      font-family:'Great Vibes', cursive;
+      font-size:48px;
+      color:var(--azul);
+      margin:0;
+    }
+
+    .card{
+      max-width:470px;
+      margin:22px auto;
+      padding:28px 22px;
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(109,157,232,.25);
+      border-radius:28px;
+      box-shadow:0 18px 45px rgba(37,69,111,.12);
+    }
+
+    .icon{
+      font-size:32px;
+      margin-bottom:8px;
+    }
+
+    .card h3{
+      margin:6px 0 10px;
+      font-family:'Playfair Display', serif;
+      font-size:24px;
+    }
+
+    .card p{
+      margin:7px 0;
+      line-height:1.5;
+      font-size:15px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:13px 24px;
+      border-radius:999px;
+      text-decoration:none;
+      color:white;
+      background:linear-gradient(135deg, #24466f, #6d9de8);
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 12px 25px rgba(37,69,111,.22);
+      transition:.25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(37,69,111,.30);
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:10px;
+      max-width:470px;
+      margin:25px auto 0;
+    }
+
+    .timebox{
+      background:white;
+      border-radius:22px;
+      padding:16px 8px;
+      box-shadow:0 14px 35px rgba(37,69,111,.10);
+      border:1px solid rgba(109,157,232,.22);
+    }
+
+    .number{
+      display:block;
+      font-size:26px;
+      font-family:'Playfair Display', serif;
+      font-weight:700;
+    }
+
+    .label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .photo-frame{
+      max-width:430px;
+      margin:20px auto 0;
+      border-radius:34px;
+      padding:10px;
+      background:linear-gradient(135deg, white, #dcecff, white);
+      box-shadow:0 20px 60px rgba(37,69,111,.18);
+    }
+
+    .photo-frame img{
+      width:100%;
+      display:block;
+      border-radius:26px;
+    }
+
+    .footer{
+      padding-bottom:70px;
+    }
+
+    .final{
+      font-family:'Great Vibes', cursive;
+      font-size:44px;
+      color:var(--azul-profundo);
+      margin:24px 0 0;
+    }
+
+    .music-btn{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:5;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      border:none;
+      background:linear-gradient(135deg, #24466f, #6d9de8);
+      color:white;
+      font-size:21px;
+      box-shadow:0 12px 28px rgba(0,0,0,.22);
+      cursor:pointer;
+    }
+
+    @media(max-width:420px){
+      h1{ font-size:64px; }
+      .subtitle{ font-size:20px; }
+      .countdown{ grid-template-columns:repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+<div class="sparkles"></div>
+
+<button class="music-btn" onclick="toggleMusic()">♪</button>
+<audio id="music" loop>
+  <!-- Puedes cambiar este archivo por musica.mp3 si agregas una canción a la carpeta -->
+</audio>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="small-title">Mis XV años</div>
+    <h1>Fernanda</h1>
+    <div class="subtitle">Una princesa está por celebrar</div>
+    <p class="phrase">“Érase una vez, en un mundo lleno de sueños y magia…”</p>
+    <div class="scroll">Desliza para ver la invitación</div>
+  </div>
+</header>
+
+<section>
+  <p class="script">Con mucha ilusión</p>
+  <h2 class="section-title">te invitamos a celebrar</h2>
+  <div class="card">
+    <div class="icon">👑</div>
+    <h3>Los XV años de Fernanda</h3>
+    <p>Un momento mágico para compartir con las personas que más queremos.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Cuenta regresiva</h2>
+  <p>Faltan...</p>
+  <div class="countdown">
+    <div class="timebox"><span class="number" id="days">00</span><span class="label">Días</span></div>
+    <div class="timebox"><span class="number" id="hours">00</span><span class="label">Horas</span></div>
+    <div class="timebox"><span class="number" id="minutes">00</span><span class="label">Min</span></div>
+    <div class="timebox"><span class="number" id="seconds">00</span><span class="label">Seg</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Detalles del evento</h2>
+
+  <div class="card">
+    <div class="icon">📅</div>
+    <h3>Sábado 13 de junio</h3>
+    <p>16:00 hrs</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⛪</div>
+    <h3>Iglesia Felipe de Jesús</h3>
+    <p>Galileo 239, Col. Postal</p>
+    <p>Tijuana, B.C.</p>
+    <a class="btn" target="_blank" href="https://maps.google.com/?q=Galileo+239,+Col.+Postal,+Tijuana,+B.C.">Ver ubicación</a>
+  </div>
+
+  <div class="card">
+    <div class="icon">✨</div>
+    <h3>Salón 5ta Tierra Jardín</h3>
+    <p>Churubusco 248, Tomas Aquino</p>
+    <p>Tijuana, B.C.</p>
+    <a class="btn" target="_blank" href="https://maps.google.com/?q=Churubusco+248,+Tomas+Aquino,+Tijuana,+B.C.">Ver ubicación</a>
+  </div>
+</section>
+
+<section>
+  <p class="script">Dress code</p>
+  <div class="card">
+    <div class="icon">💎</div>
+    <h3>Formal / Elegante</h3>
+    <p>Te esperamos con mucho cariño para vivir una noche inolvidable.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Confirma tu asistencia</h2>
+  <div class="card">
+    <p>Será muy especial contar contigo.</p>
+    <a class="btn" target="_blank" href="https://wa.me/5210000000000?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Fernanda">
+      Confirmar por WhatsApp
+    </a>
+    <p style="font-size:12px;margin-top:14px;">Cambia el número de WhatsApp en el código.</p>
+  </div>
+</section>
+
+<section>
+  <div class="photo-frame">
+    <img src="fernanda.jpg" alt="Fernanda XV años">
+  </div>
+</section>
+
+<section class="footer">
+  <p class="final">Porque los sueños sí se hacen realidad...</p>
+</section>
+
+<script>
+  const eventDate = new Date("2026-06-13T16:00:00").getTime();
+
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if(distance <= 0){
+      document.getElementById("days").innerText = "00";
+      document.getElementById("hours").innerText = "00";
+      document.getElementById("minutes").innerText = "00";
+      document.getElementById("seconds").innerText = "00";
+      return;
+    }
+
+    document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  function toggleMusic(){
+    const music = document.getElementById("music");
+    if(!music.src){
+      alert("Agrega un archivo llamado musica.mp3 a la carpeta y colócalo en la etiqueta audio.");
+      return;
+    }
+    music.paused ? music.play() : music.pause();
+  }
+</script>
+
+</body>
+</html>
