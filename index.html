@@ -42,46 +42,6 @@
 }
 
 </style>
-🎵 AHORA EL HTML
-    :root{
-      --azul-hielo:#eef6ff;
-      --azul:#6d9de8;
-      --azul-profundo:#25456f;
-      --plata:#dbe6f3;
-      --blanco:#ffffff;
-      --dorado:#d9b66f;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      margin:0;
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-profundo);
-      background:
-        radial-gradient(circle at top left, rgba(109,157,232,.35), transparent 35%),
-        linear-gradient(180deg, #f8fbff 0%, #edf5ff 45%, #ffffff 100%);
-      overflow-x:hidden;
-    }
-
-    .sparkles{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
-        radial-gradient(circle, rgba(109,157,232,.5) 1px, transparent 2px);
-      background-size: 70px 70px, 110px 110px;
-      animation: brillo 8s linear infinite;
-      opacity:.65;
-      z-index:1;
-    }
-
-    @keyframes brillo{
-      from{ transform:translateY(0); }
-      to{ transform:translateY(-80px); }
-    }
-
     .hero{
       min-height:100vh;
       display:flex;
@@ -338,11 +298,6 @@
 <body>
 <div class="sparkles"></div>
   
-<button class="music-btn" onclick="toggleMusic()">♪</button>
-
-<audio id="music" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
 
   <!-- Puedes cambiar este archivo por musica.mp3 si agregas una canción a la carpeta -->
 </audio>
@@ -461,14 +416,6 @@
 
 <script>
   
-  function toggleMusic(){
-  const music = document.getElementById("music");
-  if(music.paused){
-    music.play();
-  } else {
-    music.pause();
-  }
-}
   function scrollToRSVP(){
   document.getElementById("confirmar-asistencia").scrollIntoView({
     behavior: "smooth"
