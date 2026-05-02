@@ -8,40 +8,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* 👇 tus estilos normales */
-.hero-cta{
-  margin-top:28px;
-  padding:16px 32px;
-  border-radius:999px;
-  border:none;
-  background:linear-gradient(135deg, #6d9de8, #24466f);
-  color:white;
-  font-weight:600;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  cursor:pointer;
-  font-size:14px;
-  box-shadow:0 10px 30px rgba(37,69,111,.35);
-}
+    :root{
+      --azul-hielo:#eef6ff;
+      --azul:#6d9de8;
+      --azul-profundo:#25456f;
+      --plata:#dbe6f3;
+      --blanco:#ffffff;
+      --dorado:#d9b66f;
+    }
 
-/* 👇 AQUÍ PEGAS EL BOTÓN DE MÚSICA */
-.music-btn{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:5;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  border:none;
-  background:linear-gradient(135deg, #6d9de8, #24466f);
-  color:white;
-  font-size:22px;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-  cursor:pointer;
-}
+    *{ box-sizing:border-box; }
 
-</style>
+    body{
+      margin:0;
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-profundo);
+      background:
+        radial-gradient(circle at top left, rgba(109,157,232,.35), transparent 35%),
+        linear-gradient(180deg, #f8fbff 0%, #edf5ff 45%, #ffffff 100%);
+      overflow-x:hidden;
+    }
+
+    .sparkles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle, rgba(109,157,232,.5) 1px, transparent 2px);
+      background-size: 70px 70px, 110px 110px;
+      animation: brillo 8s linear infinite;
+      opacity:.65;
+      z-index:1;
+    }
+
+    @keyframes brillo{
+      from{ transform:translateY(0); }
+      to{ transform:translateY(-80px); }
+    }
+
     .hero{
       min-height:100vh;
       display:flex;
@@ -297,7 +302,7 @@
 
 <body>
 <div class="sparkles"></div>
-  
+
 
   <!-- Puedes cambiar este archivo por musica.mp3 si agregas una canción a la carpeta -->
 </audio>
@@ -415,7 +420,6 @@
 </section>
 
 <script>
-  
   function scrollToRSVP(){
   document.getElementById("confirmar-asistencia").scrollIntoView({
     behavior: "smooth"
